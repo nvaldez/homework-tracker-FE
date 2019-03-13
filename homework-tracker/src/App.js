@@ -5,40 +5,40 @@ import Dashboard from "./Dashboard/Dashboard";
 import Show from "./Show/Show";
 import New from "./New/New";
 
-const homeworks = [
-  {
-    name: "Control Flow Practice",
-    week: "One",
-    completed: "Yes"
-  },
-  {
-    name: "Functions Practice",
-    week: "Two",
-    completed: "Yes"
-  },
-  {
-    name: "Intro to MVC",
-    week: "Four",
-    completed: "No"
-  }
-];
+// const homeworks = [
+//   {
+//     name: "Control Flow Practice",
+//     week: "One",
+//     completed: "Yes"
+//   },
+//   {
+//     name: "Functions Practice",
+//     week: "Two",
+//     completed: "Yes"
+//   },
+//   {
+//     name: "Intro to MVC",
+//     week: "Four",
+//     completed: "No"
+//   }
+// ];
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { homeworks };
+    this.state = { homeworks: [] };
   }
 
   delete() {}
 
-  // componentDidMount() {
-  //   fetch("http://localhost:3001/")
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       // console.log(res)
-  //       this.setState({ homeworks: res });
-  //     });
-  // }
+  componentDidMount() {
+    fetch("http://localhost:3001/")
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res)
+        this.setState({ homeworks: res });
+      });
+  }
 
   render() {
     return (

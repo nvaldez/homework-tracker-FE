@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 
 class Show extends Component {
+  constructor() {
+    super();
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+  handleDelete() {
+    console.log("delete method");
+    console.log(this.props.match.params.name);
+  }
   render() {
     let homework = this.props.homeworks.map((homework, key) => {
       if (homework.name === this.props.match.params.name) {
@@ -17,7 +25,7 @@ class Show extends Component {
       <div>
         <h1>Homework</h1>
         {homework}
-        <button>Delete</button>
+        <button onClick={this.handleDelete}>Delete</button>
       </div>
     );
   }
