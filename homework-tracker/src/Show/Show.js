@@ -6,8 +6,15 @@ class Show extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleDelete() {
-    console.log("delete method");
-    console.log(this.props.match.params.name);
+    fetch(`http://localhost:3001/${this.props.match.params.name}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => console.log("Success:", JSON.stringify(response)))
+      .catch(error => console.error("Error:", error));
   }
   render() {
     let homework = this.props.homeworks.map((homework, key) => {
