@@ -1,27 +1,9 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./Dashboard/Dashboard";
 import Show from "./Show/Show";
 import New from "./New/New";
-
-// const homeworks = [
-//   {
-//     name: "Control Flow Practice",
-//     week: "One",
-//     completed: "Yes"
-//   },
-//   {
-//     name: "Functions Practice",
-//     week: "Two",
-//     completed: "Yes"
-//   },
-//   {
-//     name: "Intro to MVC",
-//     week: "Four",
-//     completed: "No"
-//   }
-// ];
 
 class App extends Component {
   constructor() {
@@ -43,6 +25,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <nav className="App-header">
+          <Link to="/dashboard">Home</Link>
+          <Link to="/new">Add Homework</Link>
+        </nav>
         <Switch>
           <Route
             path="/dashboard"
