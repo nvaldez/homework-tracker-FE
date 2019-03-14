@@ -19,6 +19,9 @@ class Show extends Component {
     this.props.getHomework();
     this.props.history.push("/dashboard");
   }
+  edit() {
+    console.log("edit button is working");
+  }
 
   render() {
     let homework = this.props.homeworks.map((homework, key) => {
@@ -37,6 +40,7 @@ class Show extends Component {
         <h1>Homework</h1>
         {homework}
         <button onClick={this.handleDelete}>Delete</button>
+        <button onClick={this.handleDelete}>Edit Homework</button>
       </div>
     );
   }

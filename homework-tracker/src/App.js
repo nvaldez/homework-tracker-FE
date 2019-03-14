@@ -16,12 +16,7 @@ class App extends Component {
   delete() {}
 
   componentDidMount() {
-    fetch("http://localhost:3001/")
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res)
-        this.setState({ homeworks: res });
-      });
+    this.getHomework();
   }
   getHomework() {
     fetch("http://localhost:3001/")

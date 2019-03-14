@@ -34,16 +34,16 @@ class New extends Component {
     })
       .then(res => res.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
+      .then(this.props.getHomework())
       .catch(error => console.error("Error:", error));
     console.log(this.state);
-    this.props.getHomework();
     this.props.history.push("/dashboard");
   }
 
   render() {
     return (
       <div>
-        <h1>New is working</h1>
+        <h1>Add New Homework</h1>
         <label htmlFor="name">Name</label>
         <input
           type="text"
