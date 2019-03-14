@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./dashboard.css";
 
 class Dashboard extends Component {
   render() {
     let homeworks = this.props.homeworks.map((homework, key) => {
       return (
-        <Link to={"/show/" + homework.name} key={key}>
-          <h4>{homework.name}</h4>
-        </Link>
+        <div className="dashboard" key={key}>
+          <Link to={"/show/" + homework.name}>
+            <h4>{homework.name}</h4>
+          </Link>
+        </div>
       );
     });
     return (

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./show.css";
 
 class Show extends Component {
   constructor() {
@@ -15,12 +16,15 @@ class Show extends Component {
       .then(res => res.json())
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
+    this.props.getHomework();
+    this.props.history.push("/dashboard");
   }
+
   render() {
     let homework = this.props.homeworks.map((homework, key) => {
       if (homework.name === this.props.match.params.name) {
         return (
-          <div key={key}>
+          <div className="homework" key={key}>
             <h4>Name: {homework.name}</h4>
             <h4>Week: {homework.week}</h4>
             <h4>Completed: {homework.completed}</h4>

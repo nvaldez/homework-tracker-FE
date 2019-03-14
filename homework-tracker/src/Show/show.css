@@ -1,0 +1,8 @@
+.homework {
+  border: 1px solid black;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: cadetblue;
+  color: white;
+}

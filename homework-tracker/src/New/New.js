@@ -36,7 +36,10 @@ class New extends Component {
       .then(response => console.log("Success:", JSON.stringify(response)))
       .catch(error => console.error("Error:", error));
     console.log(this.state);
+    this.props.getHomework();
+    this.props.history.push("/dashboard");
   }
+
   render() {
     return (
       <div>

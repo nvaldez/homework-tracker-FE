@@ -9,6 +9,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = { homeworks: [] };
+
+    this.getHomework = this.getHomework.bind(this);
   }
 
   delete() {}
@@ -21,26 +23,43 @@ class App extends Component {
         this.setState({ homeworks: res });
       });
   }
+  getHomework() {
+    fetch("http://localhost:3001/")
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res)
+        this.setState({ homeworks: res });
+      });
+  }
 
   render() {
     return (
       <div className="App">
         <nav className="App-header">
-          <Link to="/dashboard">Home</Link>
-          <Link to="/new">Add Homework</Link>
+          <Link to="/dashboard">HOME</Link>
+          <Link to="/new">ADD HOMEWORKD</Link>
         </nav>
         <Switch>
+          <Route
+            path="/"
+            exact
+            render={props => <Dashboard {...props} {...this.state} />}
+          />
           <Route
             path="/dashboard"
             render={props => <Dashboard {...props} {...this.state} />}
           />
           <Route
             path="/show/:name"
-            render={props => <Show {...props} {...this.state} />}
+            render={props => (
+              <Show {...props} {...this.state} getHomework={this.getHomework} />
+            )}
           />
           <Route
             path="/new"
-            render={props => <New {...props} {...this.state} />}
+            render={props => (
+              <New {...props} {...this.state} getHomework={this.getHomework} />
+            )}
           />
         </Switch>
       </div>
